@@ -11,21 +11,63 @@
       background: #0f0f1a;
       color: #e0e0e0;
       min-height: 100vh;
-      padding: 40px 24px;
+      padding: 30px 24px;
     }
     .header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 28px;
     }
     .header h1 {
       color: #a78bfa;
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
-    .header p {
-      color: #666;
-      font-size: 14px;
+    .how-to {
+      background: #1a2744;
+      border: 1px solid #3b4fd8;
+      border-radius: 10px;
+      padding: 16px 20px;
+      max-width: 680px;
+      margin: 0 auto 28px;
+    }
+    .how-to h3 {
+      color: #60a5fa;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .steps {
+      display: flex;
+      gap: 0;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .step-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #aaa;
+    }
+    .step-num {
+      background: #3b4fd8;
+      color: #fff;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-arrow {
+      color: #3b4fd8;
+      font-size: 18px;
+      margin: 0 10px;
     }
     .projects {
       max-width: 680px;
@@ -35,16 +77,14 @@
       background: #16213e;
       border: 1px solid #2a2a4a;
       border-radius: 12px;
-      padding: 20px 24px;
-      margin-bottom: 16px;
-      transition: border-color 0.2s;
+      padding: 20px 22px;
+      margin-bottom: 14px;
     }
-    .project:hover { border-color: #7c3aed; }
-    .project-header {
+    .project-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
     .project-name {
       font-size: 18px;
@@ -60,108 +100,64 @@
     }
     .project-desc {
       font-size: 13px;
-      color: #888;
-      margin-bottom: 14px;
-      line-height: 1.5;
-    }
-    .path-row {
-      background: #0f0f1a;
-      border-radius: 6px;
-      padding: 8px 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 14px;
-    }
-    .path-label { font-size: 10px; color: #555; margin-bottom: 2px; }
-    .path-text {
-      font-family: Consolas, monospace;
-      font-size: 12px;
-      color: #a0a0a0;
+      color: #777;
+      margin-bottom: 16px;
     }
     .copy-btn {
-      background: #2d3748;
-      color: #ccc;
-      border: none;
-      border-radius: 5px;
-      padding: 5px 12px;
-      font-size: 11px;
-      cursor: pointer;
-      white-space: nowrap;
-      margin-left: 12px;
-    }
-    .copy-btn:hover { background: #4a5568; color: #fff; }
-    .copy-btn.copied { background: #065f46; color: #6ee7b7; }
-    .actions {
-      display: flex;
-      gap: 10px;
-    }
-    .btn {
-      flex: 1;
-      padding: 10px;
-      border: none;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-      display: inline-block;
-    }
-    .btn-github {
-      background: #238636;
-      color: #fff;
-    }
-    .btn-github:hover { background: #2ea043; }
-    .btn-vercel {
-      background: #1a1a2e;
-      color: #a78bfa;
-      border: 1px solid #7c3aed;
-    }
-    .btn-vercel:hover { background: #2d1b69; }
-    .instructions {
-      max-width: 680px;
-      margin: 32px auto 0;
-      background: #16213e;
-      border: 1px solid #2a2a4a;
-      border-radius: 12px;
-      padding: 20px 24px;
-    }
-    .instructions h3 {
-      color: #a78bfa;
-      font-size: 14px;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .step {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 10px;
-      font-size: 13px;
-      color: #999;
-      line-height: 1.5;
-    }
-    .step-num {
+      width: 100%;
       background: #7c3aed;
       color: #fff;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      font-size: 11px;
+      border: none;
+      border-radius: 8px;
+      padding: 13px;
+      font-size: 15px;
       font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 12px;
-      flex-shrink: 0;
-      margin-top: 1px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition: background 0.15s;
     }
+    .copy-btn:hover { background: #a78bfa; }
+    .copy-btn.copied {
+      background: #065f46;
+      color: #6ee7b7;
+    }
+    .path-display {
+      font-family: Consolas, monospace;
+      font-size: 11px;
+      color: #555;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .secondary-links {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+    }
+    .link-sm {
+      font-size: 12px;
+      color: #555;
+      text-decoration: none;
+      padding: 4px 10px;
+      border: 1px solid #2a2a4a;
+      border-radius: 5px;
+    }
+    .link-sm:hover { color: #aaa; border-color: #555; }
     .footer {
       text-align: center;
-      margin-top: 32px;
+      margin-top: 28px;
       font-size: 11px;
-      color: #333;
+      color: #2a2a4a;
+    }
+    .path-missing {
+      width: 100%;
+      background: #2a2a4a;
+      color: #666;
+      border: none;
+      border-radius: 8px;
+      padding: 13px;
+      font-size: 14px;
+      cursor: default;
+      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -169,89 +165,87 @@
 
 <div class="header">
   <h1>My Claude Projects</h1>
-  <p>Click a project to open it on GitHub, copy the local path for Claude Code</p>
+</div>
+
+<div class="how-to" style="max-width:680px;margin:0 auto 28px;">
+  <h3>How to open a project in Claude Code</h3>
+  <div class="steps">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <span>Click the purple button to copy the path</span>
+    </div>
+    <div class="step-arrow">&#8594;</div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <span>Open Claude Code, click New Session, paste the path</span>
+    </div>
+    <div class="step-arrow">&#8594;</div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <span>Tell Claude: "Pull latest from GitHub"</span>
+    </div>
+  </div>
 </div>
 
 <div class="projects">
 
   <div class="project">
-    <div class="project-header">
+    <div class="project-top">
       <div class="project-name">TradeHub</div>
       <span class="badge">Private - Python</span>
     </div>
-    <div class="project-desc">Trading dashboard - options tracking, live P&L, Schwab integration. Main active project.</div>
-    <div class="path-row">
-      <div>
-        <div class="path-label">LOCAL PATH (paste into Claude Code)</div>
-        <div class="path-text" id="path-tradehub">C:\TradeHub_Dev\TradeHub_Project_Foundation</div>
-      </div>
-      <button class="copy-btn" onclick="copyPath('path-tradehub', this)">Copy Path</button>
-    </div>
-    <div class="actions">
-      <a class="btn btn-github" href="https://github.com/12Andresen/tradehub" target="_blank">Open on GitHub</a>
+    <div class="project-desc">Trading dashboard - options tracking, live P&L, Schwab integration</div>
+    <button class="copy-btn" onclick="copyPath('C:\\TradeHub_Dev\\TradeHub_Project_Foundation', this)">
+      Copy Path for Claude Code
+    </button>
+    <div class="path-display">C:\TradeHub_Dev\TradeHub_Project_Foundation</div>
+    <div class="secondary-links">
+      <a class="link-sm" href="https://github.com/12Andresen/tradehub" target="_blank">View on GitHub</a>
     </div>
   </div>
 
   <div class="project">
-    <div class="project-header">
+    <div class="project-top">
       <div class="project-name">Granite Admin Instructions</div>
       <span class="badge">Private - HTML</span>
     </div>
-    <div class="project-desc">Granite Admin Dashboard - workflow instructions and strategy reference site. Deployed on Vercel.</div>
-    <div class="path-row">
-      <div>
-        <div class="path-label">LOCAL PATH (paste into Claude Code)</div>
-        <div class="path-text" id="path-granite">C:\Users\hobod\OneDrive\_____ClaudeCode\Granite Admin Instructions</div>
-      </div>
-      <button class="copy-btn" onclick="copyPath('path-granite', this)">Copy Path</button>
-    </div>
-    <div class="actions">
-      <a class="btn btn-github" href="https://github.com/12Andresen/granite-admin-instructions" target="_blank">Open on GitHub</a>
-      <a class="btn btn-vercel" href="https://granite-admin-instructions.vercel.app" target="_blank">Open Live Site</a>
+    <div class="project-desc">Granite Admin Dashboard - workflow instructions and strategy reference site</div>
+    <button class="copy-btn" onclick="copyPath('C:\\Users\\hobod\\OneDrive\\_____ClaudeCode\\Granite Admin Instructions', this)">
+      Copy Path for Claude Code
+    </button>
+    <div class="path-display">C:\Users\hobod\OneDrive\_____ClaudeCode\Granite Admin Instructions</div>
+    <div class="secondary-links">
+      <a class="link-sm" href="https://github.com/12Andresen/granite-admin-instructions" target="_blank">View on GitHub</a>
+      <a class="link-sm" href="https://granite-admin-instructions.vercel.app" target="_blank">Open Live Site</a>
     </div>
   </div>
 
   <div class="project">
-    <div class="project-header">
+    <div class="project-top">
       <div class="project-name">Email Tracker</div>
       <span class="badge">Private - JavaScript</span>
     </div>
-    <div class="project-desc">Email tracking tool.</div>
-    <div class="path-row">
-      <div>
-        <div class="path-label">LOCAL PATH (paste into Claude Code)</div>
-        <div class="path-text" id="path-email">-- ask Claude Code to find this folder on your machine --</div>
-      </div>
-      <button class="copy-btn" onclick="copyPath('path-email', this)">Copy Path</button>
-    </div>
-    <div class="actions">
-      <a class="btn btn-github" href="https://github.com/12Andresen/email-tracker" target="_blank">Open on GitHub</a>
+    <div class="project-desc">Email tracking tool</div>
+    <div class="path-missing">Path not set on this machine yet — ask Claude Code to find it</div>
+    <div class="secondary-links">
+      <a class="link-sm" href="https://github.com/12Andresen/email-tracker" target="_blank">View on GitHub</a>
     </div>
   </div>
 
 </div>
 
-<div class="instructions">
-  <h3>How to start working on a project</h3>
-  <div class="step"><div class="step-num">1</div>Click "Copy Path" above for the project you want</div>
-  <div class="step"><div class="step-num">2</div>Open Claude Code desktop app, click "New session", paste the path when asked for a folder</div>
-  <div class="step"><div class="step-num">3</div>Tell Claude Code: "Pull latest from GitHub" — gets you the newest version</div>
-  <div class="step"><div class="step-num">4</div>Start working</div>
-  <div class="step"><div class="step-num">5</div>When done, tell Claude Code: "Push to GitHub" — so others can access your changes</div>
-</div>
-
-<div class="footer">12Andresen - Claude Projects Directory</div>
+<div class="footer">12Andresen - Claude Projects</div>
 
 <script>
-  function copyPath(id, btn) {
-    var text = document.getElementById(id).innerText;
-    navigator.clipboard.writeText(text).then(function() {
-      btn.textContent = 'Copied!';
+  function copyPath(path, btn) {
+    navigator.clipboard.writeText(path).then(function() {
+      var original = btn.textContent;
+      btn.textContent = 'Path Copied! Now open Claude Code -> New Session -> Paste';
       btn.classList.add('copied');
       setTimeout(function() {
-        btn.textContent = 'Copy Path';
+        btn.textContent = original;
         btn.classList.remove('copied');
-      }, 2000);
+      }, 3000);
     });
   }
 </script>
