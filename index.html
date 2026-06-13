@@ -172,17 +172,17 @@
   <div class="steps">
     <div class="step-item">
       <div class="step-num">1</div>
-      <span>Click the purple button to copy the path</span>
+      <span>Click the purple button to copy the startup message</span>
     </div>
     <div class="step-arrow">&#8594;</div>
     <div class="step-item">
       <div class="step-num">2</div>
-      <span>Open Claude Code, click New Session, paste the path</span>
+      <span>Open Claude Code &rarr; New Session &rarr; select the project folder</span>
     </div>
     <div class="step-arrow">&#8594;</div>
     <div class="step-item">
       <div class="step-num">3</div>
-      <span>Tell Claude: "Pull latest from GitHub"</span>
+      <span>Paste the message as your first message &rarr; Claude sets everything up</span>
     </div>
   </div>
 </div>
@@ -195,8 +195,8 @@
       <span class="badge">Private - Python</span>
     </div>
     <div class="project-desc">Trading dashboard - options tracking, live P&L, Schwab integration</div>
-    <button class="copy-btn" onclick="copyPath('C:\\TradeHub_Dev\\TradeHub_Project_Foundation', this)">
-      Copy Path for Claude Code
+    <button class="copy-btn" onclick="copyPath('C:\\TradeHub_Dev\\TradeHub_Project_Foundation', this, 'New session on TradeHub. Project folder: C:\\TradeHub_Dev\\TradeHub_Project_Foundation. Please: (1) read CLAUDE.md, (2) check git branch is dev, (3) read the tail of CURRENT_HANDOFF.md and the Constitution tail. Then summarize where things stand and ask me what to work on today.')">
+      Copy Startup Message for Claude Code
     </button>
     <div class="path-display">C:\TradeHub_Dev\TradeHub_Project_Foundation</div>
     <div class="secondary-links">
@@ -210,8 +210,8 @@
       <span class="badge">Private - HTML</span>
     </div>
     <div class="project-desc">Granite Admin Dashboard - workflow instructions and strategy reference site</div>
-    <button class="copy-btn" onclick="copyPath('C:\\Users\\hobod\\OneDrive\\_____ClaudeCode\\Granite Admin Instructions', this)">
-      Copy Path for Claude Code
+    <button class="copy-btn" onclick="copyPath('C:\\Users\\hobod\\OneDrive\\_____ClaudeCode\\Granite Admin Instructions', this, 'New session on the Granite Admin Instructions project. Folder: C:\\Users\\hobod\\OneDrive\\_____ClaudeCode\\Granite Admin Instructions. Please: (1) read CLAUDE.md first, (2) read CONSTITUTION.md, (3) read PROJECT_STATE.md, (4) read the changelog at the top of index.html. Then summarize where things stand and ask me what to work on today.')">
+      Copy Startup Message for Claude Code
     </button>
     <div class="path-display">C:\Users\hobod\OneDrive\_____ClaudeCode\Granite Admin Instructions</div>
     <div class="secondary-links">
@@ -225,10 +225,14 @@
       <div class="project-name">Email Tracker</div>
       <span class="badge">Private - JavaScript</span>
     </div>
-    <div class="project-desc">Email tracking tool</div>
-    <div class="path-missing">Path not set on this machine yet — ask Claude Code to find it</div>
+    <div class="project-desc">Email tracking app — read receipts, two sender profiles, inbox, AI writing assistant</div>
+    <button class="copy-btn" onclick="copyPath('C:\\Users\\hobod\\OneDrive\\____Email Tracker\\email-tracker', this, 'New session on the Email Tracker project. Project folder: C:\\Users\\hobod\\OneDrive\\____Email Tracker\\email-tracker. IMPORTANT: before doing anything else, read the help() function in tpl-pages.js — it is the authoritative project reference. Then read CLAUDE.md. Then summarize where things stand and ask me what to work on today.')">
+      Copy Startup Message for Claude Code
+    </button>
+    <div class="path-display">C:\Users\hobod\OneDrive\____Email Tracker\email-tracker</div>
     <div class="secondary-links">
       <a class="link-sm" href="https://github.com/12Andresen/email-tracker" target="_blank">View on GitHub</a>
+      <a class="link-sm" href="https://email-tracker-w6o5.onrender.com" target="_blank">Open Live App</a>
     </div>
   </div>
 
@@ -237,15 +241,16 @@
 <div class="footer">12Andresen - Claude Projects</div>
 
 <script>
-  function copyPath(path, btn) {
-    navigator.clipboard.writeText(path).then(function() {
+  function copyPath(path, btn, message) {
+    var textToCopy = message || path;
+    navigator.clipboard.writeText(textToCopy).then(function() {
       var original = btn.textContent;
-      btn.textContent = 'Path Copied! Now open Claude Code -> New Session -> Paste';
+      btn.textContent = 'Copied! Open Claude Code -> New Session -> select folder -> paste as first message';
       btn.classList.add('copied');
       setTimeout(function() {
         btn.textContent = original;
         btn.classList.remove('copied');
-      }, 3000);
+      }, 4000);
     });
   }
 </script>
