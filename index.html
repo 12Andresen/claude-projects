@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Claude Projects</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Segoe UI, Arial, sans-serif;
+      background: #0f0f1a;
+      color: #e0e0e0;
+      min-height: 100vh;
+      padding: 40px 24px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .header h1 {
+      color: #a78bfa;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .header p {
+      color: #666;
+      font-size: 14px;
+    }
+    .projects {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .project {
+      background: #16213e;
+      border: 1px solid #2a2a4a;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+    .project:hover { border-color: #7c3aed; }
+    .project-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .project-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .badge {
+      font-size: 11px;
+      background: #1e3a5f;
+      color: #60a5fa;
+      border-radius: 20px;
+      padding: 3px 10px;
+    }
+    .project-desc {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .path-row {
+      background: #0f0f1a;
+      border-radius: 6px;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .path-label { font-size: 10px; color: #555; margin-bottom: 2px; }
+    .path-text {
+      font-family: Consolas, monospace;
+      font-size: 12px;
+      color: #a0a0a0;
+    }
+    .copy-btn {
+      background: #2d3748;
+      color: #ccc;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 12px;
+      font-size: 11px;
+      cursor: pointer;
+      white-space: nowrap;
+      margin-left: 12px;
+    }
+    .copy-btn:hover { background: #4a5568; color: #fff; }
+    .copy-btn.copied { background: #065f46; color: #6ee7b7; }
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
+    .btn {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      display: inline-block;
+    }
+    .btn-github {
+      background: #238636;
+      color: #fff;
+    }
+    .btn-github:hover { background: #2ea043; }
+    .btn-vercel {
+      background: #1a1a2e;
+      color: #a78bfa;
+      border: 1px solid #7c3aed;
+    }
+    .btn-vercel:hover { background: #2d1b69; }
+    .instructions {
+      max-width: 680px;
+      margin: 32px auto 0;
+      background: #16213e;
+      border: 1px solid #2a2a4a;
+      border-radius: 12px;
+      padding: 20px 24px;
+    }
+    .instructions h3 {
+      color: #a78bfa;
+      font-size: 14px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      font-size: 13px;
+      color: #999;
+      line-height: 1.5;
+    }
+    .step-num {
+      background: #7c3aed;
+      color: #fff;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 11px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>My Claude Projects</h1>
+  <p>Click a project to open it on GitHub, copy the local path for Claude Code</p>
+</div>
+
+<div class="projects">
+
+  <div class="project">
+    <div class="project-header">
+      <div class="project-name">TradeHub</div>
+      <span class="badge">Private - Python</span>
+    </div>
+    <div class="project-desc">Trading dashboard - options tracking, live P&L, Schwab integration. Main active project.</div>
+    <div class="path-row">
+      <div>
+        <div class="path-label">LOCAL PATH (paste into Claude Code)</div>
+        <div class="path-text" id="path-tradehub">C:\TradeHub_Dev\TradeHub_Project_Foundation</div>
+      </div>
+      <button class="copy-btn" onclick="copyPath('path-tradehub', this)">Copy Path</button>
+    </div>
+    <div class="actions">
+      <a class="btn btn-github" href="https://github.com/12Andresen/tradehub" target="_blank">Open on GitHub</a>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <div class="project-name">Granite Admin Instructions</div>
+      <span class="badge">Private - HTML</span>
+    </div>
+    <div class="project-desc">Granite Admin Dashboard - workflow instructions and strategy reference site. Deployed on Vercel.</div>
+    <div class="path-row">
+      <div>
+        <div class="path-label">LOCAL PATH (paste into Claude Code)</div>
+        <div class="path-text" id="path-granite">C:\Users\hobod\OneDrive\_____ClaudeCode\Granite Admin Instructions</div>
+      </div>
+      <button class="copy-btn" onclick="copyPath('path-granite', this)">Copy Path</button>
+    </div>
+    <div class="actions">
+      <a class="btn btn-github" href="https://github.com/12Andresen/granite-admin-instructions" target="_blank">Open on GitHub</a>
+      <a class="btn btn-vercel" href="https://granite-admin-instructions.vercel.app" target="_blank">Open Live Site</a>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <div class="project-name">Email Tracker</div>
+      <span class="badge">Private - JavaScript</span>
+    </div>
+    <div class="project-desc">Email tracking tool.</div>
+    <div class="path-row">
+      <div>
+        <div class="path-label">LOCAL PATH (paste into Claude Code)</div>
+        <div class="path-text" id="path-email">-- ask Claude Code to find this folder on your machine --</div>
+      </div>
+      <button class="copy-btn" onclick="copyPath('path-email', this)">Copy Path</button>
+    </div>
+    <div class="actions">
+      <a class="btn btn-github" href="https://github.com/12Andresen/email-tracker" target="_blank">Open on GitHub</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="instructions">
+  <h3>How to start working on a project</h3>
+  <div class="step"><div class="step-num">1</div>Click "Copy Path" above for the project you want</div>
+  <div class="step"><div class="step-num">2</div>Open Claude Code desktop app, click "New session", paste the path when asked for a folder</div>
+  <div class="step"><div class="step-num">3</div>Tell Claude Code: "Pull latest from GitHub" — gets you the newest version</div>
+  <div class="step"><div class="step-num">4</div>Start working</div>
+  <div class="step"><div class="step-num">5</div>When done, tell Claude Code: "Push to GitHub" — so others can access your changes</div>
+</div>
+
+<div class="footer">12Andresen - Claude Projects Directory</div>
+
+<script>
+  function copyPath(id, btn) {
+    var text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(function() {
+        btn.textContent = 'Copy Path';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>
